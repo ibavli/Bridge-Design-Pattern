@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bridge_Design_Pattern.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,12 @@ namespace Bridge_Design_Pattern
     {
         static void Main(string[] args)
         {
+            CustomerManager customerManager = new CustomerManager();
+            //customerManager.MessageSenderBase = new EmailSender();
+            customerManager.MessageSenderBase = new SmsSender();
+            customerManager.UpdateCustomer();
+            
+            Console.ReadLine();
         }
     }
 }
